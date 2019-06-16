@@ -104,10 +104,28 @@ const initialState = () => {
   };
 };
 
+function checkScore(state) {
+  const score1 = state.completedBingoList1.length;
+  const score2 = state.completedBingoList2.length;
+  if(score1 >= 5 || score2 >= 5) {
+    if(score1 > score2) {
+      alert("1P가 승리하였습니다.");
+    } else if (score1 < score2) {
+      alert("2P가 승리하였습니다.");
+    } else {
+      alert("무승부입니다!");
+    }
+
+    return initialState();
+  }
+
+  return state;
+}
+
 export default handleActions(
   {
     [CHECK]: (state, action) => {
-      const newState = { ...state };
+      let newState = { ...state };
       if (state.checkedNumbers[action.number]) {
         return newState;
       }
@@ -121,7 +139,9 @@ export default handleActions(
       checkedNumbers[action.number] = true;
       newState.checkedNumbers = checkedNumbers;
       newState.turn = newState.turn === 1 ? 2 : 1;
-      return checkBingo(newState);
+      newState = checkBingo(newState);
+      newState = checkScore(newState)
+      return newState;
     },
     [RESET]: () => {
       const newState = initialState();
