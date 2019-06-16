@@ -12,10 +12,10 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <button>게임 시작</button>
-        <div>A</div>
-        <BingoBoardContainer player={"A"} />
-        <div>B</div>
-        <BingoBoardContainer player={"B"} />
+        <div>1P</div>
+        <BingoBoardContainer player={1} />
+        <div>2P</div>
+        <BingoBoardContainer player={2} />
       </div>
     </Provider>
   );

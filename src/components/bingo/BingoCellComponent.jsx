@@ -1,10 +1,13 @@
 import React from "react";
-import "./BingoCell.css"
+import "./BingoCell.css";
 
 const BingoCellComponent = props => {
   return (
-    <div className={"cell " + (props.cell.checked ? " checked" : "")}>
-      {props.cell.number}
+    <div
+      onClick={props.check}
+      className={"cell" + (props.checked ? " checked" : "")}
+    >
+      {props.number + 1}
     </div>
   );
 };

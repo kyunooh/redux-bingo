@@ -1,4 +1,5 @@
 import { handleActions } from "redux-actions";
+import {CHECK} from "./bingoTypes";
 
 const initialBingoBoard = () => {
   const numberArray = [];
@@ -14,7 +15,7 @@ const initialBingoBoard = () => {
         Math.floor(Math.random() * numberArray.length),
         1
       )[0];
-      row.push({ number: randomNumber, checked: false });
+      row.push(randomNumber);
     }
     shuffledArray.push(row);
   }
@@ -22,11 +23,34 @@ const initialBingoBoard = () => {
   return shuffledArray;
 };
 
-const initialState = {
-  turn: "A",
-  clickedNumber: [],
-  boardA: initialBingoBoard(),
-  boardB: initialBingoBoard()
+const resetState = {
+  turn: 1,
+  checkedNumbers: {},
+  board1: initialBingoBoard(),
+  board2: initialBingoBoard()
 };
 
-export default handleActions({}, initialState);
+
+
+
+
+export default handleActions({
+  [CHECK]: (state, action) => {
+    const newState = { ...state };
+    if(state.checkedNumbers[action.number]) {
+      return newState;
+    }
+
+    if(action.player !== state.turn) {
+      alert("잘못된 차레입니다.");
+      return newState;
+    }
+
+    const checkedNumbers = { ...state.checkedNumbers };
+    checkedNumbers[action.number] = true;
+    newState.checkedNumbers = checkedNumbers;
+    newState.turn = state.turn === 1 ? 2 : 1;
+
+    return newState;
+  }
+}, resetState);
