@@ -3,7 +3,7 @@ import "./App.css";
 
 import BingoBoardContainer from "./components/bingo/BingoBoardContainer";
 import initializeStore from "./initializeStore";
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import BingoStartButtonContainer from "./components/bingo/BingoStartButtonContainer";
 
 const store = initializeStore();

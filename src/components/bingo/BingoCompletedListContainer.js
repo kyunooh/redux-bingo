@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import BingoCompletedListComponent from "./BingoCompletedListComponent";
 
 const BingoCompletedListContainer = props => {
@@ -7,10 +7,9 @@ const BingoCompletedListContainer = props => {
     <BingoCompletedListComponent
       completedList={props["completedBingoList" + props.player]}
     />
-  )
+  );
 };
 
-
-export default connect(
-  state => ({ ...state.bingoReducer }),
-)(BingoCompletedListContainer);
+export default connect(state => ({ ...state.bingoReducer }))(
+  BingoCompletedListContainer
+);
