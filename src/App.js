@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import BingoBoardContainer from "./components/bingo/BingoBoardContainer";
+import initializeStore from "./initializeStore";
+import {Provider} from "react-redux";
+
+const store = initializeStore();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <button>게임 시작</button>
+        <div>A</div>
+        <BingoBoardContainer player={"A"} />
+        <div>B</div>
+        <BingoBoardContainer player={"B"} />
+      </div>
+    </Provider>
   );
 }
 

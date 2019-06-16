@@ -1,3 +1,5 @@
+import { handleActions } from "redux-actions";
+
 const initialBingoBoard = () => {
   const numberArray = [];
   for (let i = 0; i < 25; i++) {
@@ -11,8 +13,8 @@ const initialBingoBoard = () => {
       const randomNumber = numberArray.splice(
         Math.floor(Math.random() * numberArray.length),
         1
-      );
-      row.push({ randomNumber, checked: false });
+      )[0];
+      row.push({ number: randomNumber, checked: false });
     }
     shuffledArray.push(row);
   }
@@ -21,8 +23,10 @@ const initialBingoBoard = () => {
 };
 
 const initialState = {
+  turn: "A",
+  clickedNumber: [],
   boardA: initialBingoBoard(),
   boardB: initialBingoBoard()
 };
 
-
+export default handleActions({}, initialState);
