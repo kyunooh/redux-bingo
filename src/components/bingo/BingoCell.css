@@ -5,11 +5,16 @@
   background: lightgrey;
 }
 
+.cell:hover {
+  background: #81a0ad;
+}
+
 .cell.checked {
   background: lightblue;
 }
 
 .number {
   display: inline-block;
+  cursor: default;
   padding-top: 18px;
 }
