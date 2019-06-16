@@ -9,3 +9,8 @@
   background: lightblue;
 }
 
+.number {
+  display: inline-block;
+  padding-top: 18px;
+}
+

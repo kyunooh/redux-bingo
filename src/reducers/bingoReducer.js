@@ -1,5 +1,5 @@
 import { handleActions } from "redux-actions";
-import {CHECK} from "./bingoTypes";
+import {CHECK, RESET} from "./bingoTypes";
 
 const initialBingoBoard = () => {
   const numberArray = [];
@@ -24,6 +24,7 @@ const initialBingoBoard = () => {
 };
 
 const resetState = {
+  isStart: false,
   turn: 1,
   checkedNumbers: {},
   board1: initialBingoBoard(),
@@ -51,6 +52,13 @@ export default handleActions({
     newState.checkedNumbers = checkedNumbers;
     newState.turn = state.turn === 1 ? 2 : 1;
 
+    return newState;
+  },
+  [RESET]: (state) => {
+    const newState = { ...state };
+    newState.isStart = true;
+    newState.board1 = initialBingoBoard();
+    newState.board2 = initialBingoBoard();
     return newState;
   }
 }, resetState);

@@ -17,6 +17,7 @@ const BingoCellContainer = props => {
     <BingoCellComponent
       check={handleCheck}
       checked={checked()}
+      isStart={props.isStart}
       number={props.number}
     />
   );
