@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/redux-bingo/static/css/main.75ed32ec.chunk.css",
-    "main.js": "/redux-bingo/static/js/main.6a8f0fea.chunk.js",
-    "main.js.map": "/redux-bingo/static/js/main.6a8f0fea.chunk.js.map",
+    "main.js": "/redux-bingo/static/js/main.de075cc6.chunk.js",
+    "main.js.map": "/redux-bingo/static/js/main.de075cc6.chunk.js.map",
     "runtime~main.js": "/redux-bingo/static/js/runtime~main.7558cd1d.js",
     "runtime~main.js.map": "/redux-bingo/static/js/runtime~main.7558cd1d.js.map",
     "static/js/2.ce9884e9.chunk.js": "/redux-bingo/static/js/2.ce9884e9.chunk.js",
     "static/js/2.ce9884e9.chunk.js.map": "/redux-bingo/static/js/2.ce9884e9.chunk.js.map",
     "index.html": "/redux-bingo/index.html",
-    "precache-manifest.41ba3f0b95a3208c8bfb6e4498e53fe2.js": "/redux-bingo/precache-manifest.41ba3f0b95a3208c8bfb6e4498e53fe2.js",
+    "precache-manifest.55bd70911912e655bd9161b33b10f89e.js": "/redux-bingo/precache-manifest.55bd70911912e655bd9161b33b10f89e.js",
     "service-worker.js": "/redux-bingo/service-worker.js",
     "static/css/main.75ed32ec.chunk.css.map": "/redux-bingo/static/css/main.75ed32ec.chunk.css.map"
   }
