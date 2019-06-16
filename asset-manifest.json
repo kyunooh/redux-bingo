@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/redux-bingo/static/css/main.75ed32ec.chunk.css",
+    "main.css": "/redux-bingo/static/css/main.0fa7661b.chunk.css",
     "main.js": "/redux-bingo/static/js/main.de075cc6.chunk.js",
     "main.js.map": "/redux-bingo/static/js/main.de075cc6.chunk.js.map",
     "runtime~main.js": "/redux-bingo/static/js/runtime~main.7558cd1d.js",
@@ -8,8 +8,8 @@
     "static/js/2.ce9884e9.chunk.js": "/redux-bingo/static/js/2.ce9884e9.chunk.js",
     "static/js/2.ce9884e9.chunk.js.map": "/redux-bingo/static/js/2.ce9884e9.chunk.js.map",
     "index.html": "/redux-bingo/index.html",
-    "precache-manifest.55bd70911912e655bd9161b33b10f89e.js": "/redux-bingo/precache-manifest.55bd70911912e655bd9161b33b10f89e.js",
+    "precache-manifest.cb49637a18395656c5eeb197a1fa94df.js": "/redux-bingo/precache-manifest.cb49637a18395656c5eeb197a1fa94df.js",
     "service-worker.js": "/redux-bingo/service-worker.js",
-    "static/css/main.75ed32ec.chunk.css.map": "/redux-bingo/static/css/main.75ed32ec.chunk.css.map"
+    "static/css/main.0fa7661b.chunk.css.map": "/redux-bingo/static/css/main.0fa7661b.chunk.css.map"
   }
 }
