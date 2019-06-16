@@ -1,7 +1,6 @@
 import { handleActions } from "redux-actions";
 import { CHECK, RESET } from "./bingoTypes";
 
-
 const bingoLength = 5;
 
 const initialBingoBoard = () => {
@@ -26,15 +25,15 @@ const initialBingoBoard = () => {
   return shuffledArray;
 };
 
-const allBingoList = (board) => {
-  const allBingoList = board.map(r => r.toString());
+const allBingoList = board => {
+  const allBingoList = board.map(r => r);
 
-  for(let i = 0; i < bingoLength; i++) {
+  for (let i = 0; i < bingoLength; i++) {
     const bingoList = [];
-    for(let j = 0; j < bingoLength; j++) {
-      bingoList.push(board[j][i])
+    for (let j = 0; j < bingoLength; j++) {
+      bingoList.push(board[j][i]);
     }
-    allBingoList.push(bingoList.toString());
+    allBingoList.push(bingoList);
   }
 
   // \ shape bingo
@@ -42,15 +41,50 @@ const allBingoList = (board) => {
   // / shape bingo
   const slashBingo = [];
 
-  for(let i = 0; i < bingoLength; i++) {
-      backSlashBingo.push(board[i][i]);
-      slashBingo.push(board[i][bingoLength - i - 1]);
+  for (let i = 0; i < bingoLength; i++) {
+    backSlashBingo.push(board[i][i]);
+    slashBingo.push(board[i][bingoLength - i - 1]);
   }
-  
-  allBingoList.push(backSlashBingo.toString());
-  allBingoList.push(slashBingo.toString());
+
+  allBingoList.push(backSlashBingo);
+  allBingoList.push(slashBingo);
 
   return allBingoList;
+};
+
+const checkBingo = state => {
+  const newState = { ...state };
+  const { allBingoList1, allBingoList2 } = newState;
+
+  const completedBingoList1 = [...state.completedBingoList1];
+  const completedBingoList2 = [...state.completedBingoList2];
+
+  for (let i = 0; i < allBingoList1.length; i++) {
+    for (let j = 0; j < bingoLength; j++) {
+      const bingo = allBingoList1[i];
+      if (!state.checkedNumbers[bingo[j]]) break;
+      if (j === bingoLength - 1) {
+        if (!completedBingoList1.includes(bingo.toString())) {
+          completedBingoList1.push(bingo.toString());
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < allBingoList2.length; i++) {
+    for (let j = 0; j < bingoLength; j++) {
+      const bingo = allBingoList2[i];
+      if (!state.checkedNumbers[bingo[j]]) break;
+      if (j === bingoLength - 1) {
+        if (!completedBingoList2.includes(bingo.toString())) {
+          completedBingoList2.push(bingo.toString());
+        }
+      }
+    }
+  }
+  newState.completedBingoList1 = completedBingoList1;
+  newState.completedBingoList2 = completedBingoList2;
+  return newState;
 };
 
 const initialState = () => {
@@ -86,9 +120,8 @@ export default handleActions(
       const checkedNumbers = { ...state.checkedNumbers };
       checkedNumbers[action.number] = true;
       newState.checkedNumbers = checkedNumbers;
-      newState.turn = state.turn === 1 ? 2 : 1;
-
-      return newState;
+      newState.turn = newState.turn === 1 ? 2 : 1;
+      return checkBingo(newState);
     },
     [RESET]: () => {
       const newState = initialState();
