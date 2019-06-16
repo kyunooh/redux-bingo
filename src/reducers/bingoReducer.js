@@ -131,7 +131,7 @@ export default handleActions(
       }
 
       if (action.player !== state.turn) {
-        alert("잘못된 차레입니다.");
+        alert("잘못된 차례입니다.");
         return newState;
       }
 
